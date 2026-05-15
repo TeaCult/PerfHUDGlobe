@@ -14,7 +14,7 @@ This application is packaged as a standalone AppImage, requiring no local Node.j
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/TeaCult/PerfHUDGlobe.git
     cd performance-hud
     ```
 
@@ -56,7 +56,7 @@ Bu uygulama, son kullanıcı tarafında yerel bir Node.js çalışma zamanı (ru
 
 1.  **Depoyu klonlayın:**
     ```bash
-    git clone <depo-adresi>
+    git clone https://github.com/TeaCult/PerfHUDGlobe.git
     cd performance-hud
     ```
 
