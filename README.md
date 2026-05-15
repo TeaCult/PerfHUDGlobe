@@ -39,7 +39,7 @@ This application is packaged as a standalone AppImage, requiring no local Node.j
 Distributed under the MIT License. See LICENSE.md for detailed attribution parameters.
 
 
-###TÜRKÇE (TURKISH)
+### TÜRKÇE (TURKISH)
 # Performance HUD
 
 Linux ortamları için yarı saydam, çerçevesiz bir sistem performans izleyicisi ve gerçek zamanlı günlük (log) görüntüleyici.
