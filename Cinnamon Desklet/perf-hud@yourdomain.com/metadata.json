@@ -1,0 +1,7 @@
+{
+    "uuid": "perf-hud@yourdomain.com",
+    "name": "Performance HUD",
+    "description": "System metrics and journalctl logs.",
+    "version": "1.0",
+    "prevent-multiple-instances": true
+}
