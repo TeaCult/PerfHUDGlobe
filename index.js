@@ -14,7 +14,7 @@ const s = new THREE.Scene();
 const cam = new THREE.PerspectiveCamera(50, 1, 0.1, 50);
 let zoom = 6;
 cam.position.z = zoom;
-cam.fov = 28;  
+cam.fov = 28;
 cam.position.x = 1.25;
 const group = new THREE.Group();
 s.add(group);
@@ -22,7 +22,7 @@ s.add(group);
 
 
 // ---- tweak ----
-const RADIUS = 1, DETAIL = 2, GAP = 0.12, OPACITY = 0.5, EDGE =0x57A0D2; // CAROLINE
+const RADIUS = 1, DETAIL = 2, GAP = 0.12, OPACITY = 0.5, EDGE = 0x57A0D2; // CAROLINE
 const BASE_AMP = 0.10, BASE_SPEED = 5.0;
 const NET_NORM_BPS = 5_000_000;    // 5MB/s => 1
 const DISK_NORM_BPS = 20_000_000;  // 20MB/s => 1
@@ -30,7 +30,7 @@ const DISK_NORM_BPS = 20_000_000;  // 20MB/s => 1
 
 const view = document.getElementById("view");
 
-function fit(){
+function fit() {
   const w = view.clientWidth, h = view.clientHeight;
   r.setSize(w, h, false);
   cam.aspect = w / h;
@@ -150,10 +150,10 @@ const smooth = { cpu: 0, gpu: 0, net: 0, mem: 0, disk: 0 };
 
 const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const fmtPct = (x) => `${x.toFixed(0)}%`;
-function fmtRate(bps){
+function fmtRate(bps) {
   if (bps < 1024) return `${bps.toFixed(0)} B/s`;
-  if (bps < 1024*1024) return `${(bps/1024).toFixed(1)} KB/s`;
-  return `${(bps/1_000_000).toFixed(2)} MB/s`;
+  if (bps < 1024 * 1024) return `${(bps / 1024).toFixed(1)} KB/s`;
+  return `${(bps / 1_000_000).toFixed(2)} MB/s`;
 }
 
 window.api?.onMetrics?.((m) => {
@@ -223,7 +223,7 @@ let hudAcc = 0;
     $cpu.textContent = fmtPct(raw.cpuPct);
     $gpu.textContent = fmtPct(raw.gpuPct);
     $mem.textContent = fmtPct(raw.memPct);
-    $net.textContent  = `↓ ${fmtRate(raw.rxBps)}  ↑ ${fmtRate(raw.txBps)}`;
+    $net.textContent = `↓ ${fmtRate(raw.rxBps)}  ↑ ${fmtRate(raw.txBps)}`;
     $disk.textContent = `R ${fmtRate(raw.drBps)}  W ${fmtRate(raw.dwBps)}`;
   }
 
@@ -234,13 +234,13 @@ let hudAcc = 0;
 const logBox = document.getElementById("loglines");
 const MAX_LINES = 120;
 
-function priClass(p){
+function priClass(p) {
   if (p <= 3) return "logE";   // err/crit/alert/emerg
   if (p === 4) return "logW";  // warning
   return "logI";              // notice/info/debug
 }
 
-function shortLine(e){
+function shortLine(e) {
   const who = (e.unit || e.comm) ? `[${e.unit || e.comm}] ` : "";
   return who + (e.msg || "");
 }
@@ -252,4 +252,7 @@ window.api?.onLog?.((e) => {
 
   logBox.appendChild(div);
   while (logBox.childNodes.length > MAX_LINES) logBox.removeChild(logBox.firstChild);
+
+  // Execution: Forces scroll to the bottom of the container
+  logBox.scrollTop = logBox.scrollHeight;
 });
