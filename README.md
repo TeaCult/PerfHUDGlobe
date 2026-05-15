@@ -1,7 +1,7 @@
 # Performance HUD
 
 A translucent, borderless system performance monitor and real-time log viewer for Linux environments.
-
+<img src="PerfHUDGlobe.jpeg" alt="" width="400">
 ## Architecture
 
 *   **Frontend:** HTML5 Canvas, Three.js (WebGL 3D telemetry rendering).
